@@ -1,0 +1,24 @@
+<%--
+  Created by IntelliJ IDEA.
+  User: Jakub Domagała
+  Date: 27.09.2020
+  Time: 12:17
+  To change this template use File | Settings | File Templates.
+--%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
+<header>
+
+
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">
+
+        </a>
+
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+
+
+        </div>
+    </nav>
+</header>
