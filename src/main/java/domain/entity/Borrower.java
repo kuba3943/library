@@ -1,14 +1,12 @@
 package domain.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+
 
 @Getter
 @Setter
@@ -17,12 +15,11 @@ import javax.persistence.Table;
 
 @Entity
 
-@Table (name = "author")
-public class Author {
-
+@Table(name = "borrower")
+public class Borrower {
 
     @Id
-    @Column (name = "id_author")
+    @Column (name = "id_borrower")
     private int id;
 
     @Column (name = "first_name")
@@ -31,7 +28,6 @@ public class Author {
     @Column (name = "last_name")
     private String lastName;
 
-    @Column (name = "birth_place")
-    private String birthPlace;
-
+    @Column (name = "borrower_details")
+    private int borrowerDetailsId;
 }
