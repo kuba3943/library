@@ -1,7 +1,5 @@
 package domain.entity;
 
-import persistance.Connection;
-
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
@@ -9,21 +7,24 @@ import java.sql.Date;
 
 public class Main {
 
-    private persistance.Connection connection;
+    private EntityManagerFactory entityManagerFactory;
 
+    public Main() {
+        entityManagerFactory = Persistence.createEntityManagerFactory("domain.entity");
+    }
 
-    public Main(Connection connection) {
-        this.connection = connection;
+    public EntityManagerFactory getEntityManagerFactory() {
+        return entityManagerFactory;
     }
 
     public void close() {
-        Connection.entityManagerFactory.close();
+        entityManagerFactory.close();
     }
 
     private void oneToOne() {
         EntityManager entityManager = null;
         try {
-            entityManager = Connection.entityManagerFactory.createEntityManager();
+            entityManager = entityManagerFactory.createEntityManager();
             entityManager.getTransaction().begin();
 
             Borrower borrower1 = new Borrower("abcd", "abcd");
@@ -46,7 +47,7 @@ public class Main {
 
         EntityManager entityManager = null;
         try {
-            entityManager = Connection.entityManagerFactory.createEntityManager();
+            entityManager = entityManagerFactory.createEntityManager();
             entityManager.getTransaction().begin();
 
             Book book1 = new Book((byte) 1,Category.CLASSIC, "99", 90, Date.valueOf("2001-01-01"), "987", "iy");
@@ -91,7 +92,7 @@ public class Main {
 
         EntityManager entityManager = null;
         try {
-            entityManager = Connection.entityManagerFactory.createEntityManager();
+            entityManager = entityManagerFactory.createEntityManager();
             entityManager.getTransaction().begin();
 
             Book book1 = new Book((byte) 1,Category.CLASSIC, "99", 90, Date.valueOf("2001-01-01"), "987", "iy");
@@ -117,8 +118,7 @@ public class Main {
     }
 
     public static void main(String[] args) {
-        persistance.Connection aa = Connection.getInstance();
-        Main main = new Main(aa);
+        Main main = new Main();
         try {
             main.OneToMany();
         } catch (Exception e) {

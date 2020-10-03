@@ -1,4 +1,7 @@
 package web;
 
-public class EditBookServlet {
+import javax.servlet.annotation.WebServlet;
+
+@WebServlet ("/edit")
+public class EditBookServlet  {
 }

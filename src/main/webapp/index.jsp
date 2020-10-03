@@ -11,6 +11,12 @@
 <body>
 <jsp:include page="/WEB-INF/header.jspf"/>
 
+<br>
+<c:forEach var="book" items="${sessionScope.listOfBooks}">
+    <c:out value="${book.title}"/>
+    <br>
+</c:forEach>
+<br>
 
 
 <jsp:include page="/WEB-INF/footer.jspf"/>
