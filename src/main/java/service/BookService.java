@@ -7,7 +7,7 @@ import domain.entity.Book;
 
 public class BookService {
 
-    private BookDTO convertToBookDTO(Book book) {
+    public BookDTO convertToBookDTO(Book book) {
         BookDTO bookDTO = new BookDTO();
         bookDTO.setBorrow(book.getBorrow());
         bookDTO.setCategory(book.getCategory());

@@ -8,25 +8,23 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.List;
 
-
-@WebServlet("/Home")
-public class HomeServlet extends HttpServlet {
-
-
+@WebServlet("/deleteServlet")
+public class DeleteServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        int bookId = Integer.parseInt(req.getParameter("exampleRadios"));
+
         BookRepository bookRepository = new BookRepository();
+
+        bookRepository.delete(bookId);
         List<Book> listOfBooks = bookRepository.findAll();
 
-        HttpSession session = req.getSession();
-
-        session.setAttribute("listOfBooks", listOfBooks);
-        req.getRequestDispatcher("index.jsp").forward(req,resp);
+        req.setAttribute("listOfBooks", listOfBooks);
+        req.getRequestDispatcher("show.jsp").forward(req,resp);
 
     }
 }

@@ -16,6 +16,7 @@
 <body>
 <jsp:include page="/WEB-INF/header.jspf"/>
 
+<p><c:out value="${requestScope.book.title}"/></p>
 
 
 <jsp:include page="/WEB-INF/footer.jspf"/>

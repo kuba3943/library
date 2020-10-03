@@ -11,12 +11,14 @@
 <body>
 <jsp:include page="/WEB-INF/header.jspf"/>
 
-<br>
-<c:forEach var="book" items="${sessionScope.listOfBooks}">
-    <c:out value="${book.title}"/>
-    <br>
-</c:forEach>
-<br>
+<div class="container mt-5">
+    <div class="col-6">
+
+<a href="details.jsp"> <button type="button" class="btn btn-primary">ADD</button></a>
+<a href="/show"> <button type="button" class="btn btn-success">SHOW ALL</button></a>
+
+    </div>
+</div>
 
 
 <jsp:include page="/WEB-INF/footer.jspf"/>
