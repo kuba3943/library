@@ -5,10 +5,9 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Getter
 @Setter
@@ -23,6 +22,7 @@ public class Author {
 
     @Id
     @Column (name = "id_author")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
     @Column (name = "first_name")
@@ -34,4 +34,18 @@ public class Author {
     @Column (name = "birth_place")
     private String birthPlace;
 
+    @OneToMany(mappedBy = "authorId", fetch = FetchType.LAZY)
+    private Set<Book> books = new HashSet<>();
+
+    public Author( String firstName, String lastName, String birthPlace) {
+        this.id = id;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.birthPlace = birthPlace;
+    }
+
+    public void addBooks(Book book){
+        books.add(book);
+        book.setAuthor(this);
+    }
 }

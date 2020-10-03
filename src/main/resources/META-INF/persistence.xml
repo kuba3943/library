@@ -4,6 +4,7 @@
              version="2.0">
 
     <persistence-unit name="domain.entity">
+        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
         <class>domain.entity.Author</class>
         <class>domain.entity.Book</class>
         <class>domain.entity.Borrow</class>

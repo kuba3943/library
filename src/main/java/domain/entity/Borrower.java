@@ -2,10 +2,9 @@ package domain.entity;
 
 import lombok.*;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 
 @Getter
@@ -20,6 +19,7 @@ public class Borrower {
 
     @Id
     @Column (name = "id_borrower")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
     @Column (name = "first_name")
@@ -28,6 +28,26 @@ public class Borrower {
     @Column (name = "last_name")
     private String lastName;
 
-    @Column (name = "borrower_details")
-    private int borrowerDetailsId;
+    @OneToOne(cascade = {CascadeType.ALL})
+    @JoinColumn(name = "borrower_details_id")
+    private BorrowerDetails borrowerDetailsId;
+
+    @OneToMany(mappedBy = "borrowerId", fetch = FetchType.LAZY)
+    private Set<Borrow> borrows = new HashSet<>();
+
+    public Borrower ( String firstName, String lastName){
+        this.id=id;
+        this.firstName=firstName;
+        this.lastName=lastName;
+    }
+
+    public void setBorrowerDetails (BorrowerDetails borrowerDetails){
+        this.borrowerDetailsId=borrowerDetails;
+    }
+
+    public void addBorrows(Borrow borrow){
+        borrows.add(borrow);
+        borrow.setBorrower(this);
+    }
+
 }
