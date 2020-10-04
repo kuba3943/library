@@ -21,11 +21,11 @@
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="title">Title</label>
-                    <input type="text" class="form-control" id="title" name="title" value="${requestScope.book.title}" placeholder="Title">
+                    <input type="text" class="form-control" id="title" name="title" value="" placeholder="Title">
                 </div>
                 <div class="form-group col-md-6">
                     <label for="isbn">ISBN</label>
-                    <input type="text" class="form-control" id="isbn" name="isbn" value="${requestScope.book.isbn}" placeholder="ISBN">
+                    <input type="text" class="form-control" id="isbn" name="isbn" value="" placeholder="ISBN">
                 </div>
             </div>
             <div class="form-row">
@@ -34,7 +34,7 @@
                     <select id="author" class="form-control" name="author">
 
 
-                        <option value="${requestScope.author2.id}" ><c:out value="${requestScope.author2.firstName} ${requestScope.author2.lastName}"/></option>
+                        <option value="null"></option>
                         <c:forEach var="author" items="${requestScope.authors}">
 
                             <option value="${author.id}"><c:out
@@ -49,7 +49,7 @@
                     <select id="category" class="form-control" name="category">
 
 
-                        <option value="${requestScope.book.category}">  ${requestScope.book.category.name()}</option>
+                        <option value="null"></option>
                         <c:forEach var="cat" items="${requestScope.categories}">
 
                             <option value="${cat}"><c:out
@@ -63,17 +63,17 @@
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="page">Pages</label>
-                    <input type="number" class="form-control" id="page" name="page" value="${requestScope.book.pages}">
+                    <input type="number" class="form-control" id="page" name="page" value="">
                 </div>
                 <div class="form-group col-md-6">
                     <label for="date">Date</label>
-                    <input type="date" class="form-control" id="date" name="date" value="${requestScope.book.releaseDate}">
+                    <input type="date" class="form-control" id="date" name="date" value="">
                 </div>
             </div>
             <div class="form-row">
                 <div class="form-group col-md-12">
                     <label for="summary">Summary</label>
-                    <textarea class="form-control" id="summary" rows="3" name="summary" value="${requestScope.book.summary}">${requestScope.book.summary}</textarea>
+                    <textarea class="form-control" id="summary" rows="3" name="summary" value=""></textarea>
                 </div>
             </div>
             <br>
@@ -84,20 +84,21 @@
                 </label>
             </div>
             <div class="form-check">
-                <input class="form-check-input" type="radio" name="borrow" id="exampleRadios3" value="1">
+                <input class="form-check-input" type="radio" name="borrow" id="exampleRadios3" value="1"
+                       disabled>
                 <label class="form-check-label" for="exampleRadios3" value="1">
                     BORROWED
                 </label>
             </div>
             <br>
-            <button type="submit" class="btn btn-primary" name="id" value="${requestScope.id}">EDIT</button>
+            <button type="submit" class="btn btn-primary">ADD</button>
         </form>
 
         <div class="container mt-5">
             <div class="col-12">
                 <form action="/addRed">
-                    <button type="submit" class="btn btn-light" name="action" value="back">BACK</button>
-                    <button type="submit" class="btn btn-light" name="action" value="aut">ADD AUTHOR</button>
+                        <button type="submit" class="btn btn-light" name="action" value="back">BACK</button>
+                        <button type="submit" class="btn btn-light" name="action" value="aut">ADD AUTHOR</button>
                 </form>
             </div>
         </div>

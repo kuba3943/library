@@ -10,16 +10,20 @@
 
 <body>
 <jsp:include page="/WEB-INF/header.jspf"/>
+<form action="/show">
+    <div class="container mt-5">
+        <div class="col-12">
 
-<div class="container mt-5">
-    <div class="col-6">
+            <a href="/show">
+                <button type="submit" class="btn btn-dark" name="show" value="all">SHOW ALL</button>
+            </a>
+            <a href="/show">
+                <button type="submit" class="btn btn-dark" name="show" value="ava">SHOW AVAILABLE</button>
+            </a>
 
-<a href="details.jsp"> <button type="button" class="btn btn-primary">ADD</button></a>
-<a href="/show"> <button type="button" class="btn btn-success">SHOW ALL</button></a>
-
+        </div>
     </div>
-</div>
-
+</form>
 
 <jsp:include page="/WEB-INF/footer.jspf"/>
 </body>

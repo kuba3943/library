@@ -10,22 +10,15 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <html>
 <head>
-    <title>SHOW</title>
+    <title>FAIL BORROW</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body>
 <jsp:include page="/WEB-INF/header.jspf"/>
 <div class="container mt-5">
     <div class="col-12">
-
-
-        <c:if test="${not empty requestScope.error}">
-        <div class="alert alert-danger" role="alert">
-            <c:out value="${requestScope.error}"/>
-        </div>
-
-        </c:if>
         <form action="/red">
+            <p>BOOK IS BORROWED, CHOOSE ANOTHER ONE</p>
             <table class="table">
                 <thead class="thead-dark">
 
