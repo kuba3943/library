@@ -13,6 +13,6 @@ insert into borrower_details (address, email, phone) values ('Wieliczka', 'tomas
 insert into borrower (first_name, last_name, borrower_details_id) values ('Jan', 'Nowak', 1);
 insert into borrower (first_name, last_name, borrower_details_id) values ('Tomasz', 'Maj', 2);
 
-insert into borrow (bbok_id, borrower_id, rental_date) values (2, 1, '2020-09-30');
-insert into borrow (bbok_id, borrower_id, rental_date) values (3, 1, '2020-08-24');
-insert into borrow (bbok_id, borrower_id, rental_date) values (4, 2, '2020-09-24');
+insert into borrow (book_id, borrower_id, rental_date) values (2, 1, '2020-09-30');
+insert into borrow (book_id, borrower_id, rental_date) values (3, 1, '2020-08-24');
+insert into borrow (book_id, borrower_id, rental_date) values (4, 2, '2020-09-24');

@@ -49,6 +49,7 @@ public class Book {
     private Author authorId;
 
     @OneToMany(mappedBy = "bookId", fetch = FetchType.LAZY)
+
     private Set<Borrow> borrows = new HashSet<>();
 
     public Book(byte borrow, Category category, String isbn, int pages, Date releaseDate, String summary, String title) {

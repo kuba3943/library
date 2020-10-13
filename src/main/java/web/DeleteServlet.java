@@ -1,7 +1,9 @@
 package web;
 
 import domain.entity.Book;
+import domain.entity.Borrow;
 import persistance.BookRepository;
+import persistance.BorrowRepository;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -19,8 +21,24 @@ public class DeleteServlet extends HttpServlet {
         int bookId = Integer.parseInt(req.getParameter("exampleRadios"));
 
         BookRepository bookRepository = new BookRepository();
+        BorrowRepository borrowRepository = new BorrowRepository();
 
-        bookRepository.delete(bookId);
+        List<Borrow> allborrows = borrowRepository.findAll();
+
+        for (Borrow a : allborrows) {
+            if (a.getBookId().getId() == bookId){
+                a.setBook(null);
+                a.setBorrower(null);
+                borrowRepository.delete(a.getId());
+            }
+        }
+
+
+
+            bookRepository.delete(bookId);
+
+
+
         List<Book> listOfBooks = bookRepository.findAll();
 
         req.setAttribute("listOfBooks", listOfBooks);

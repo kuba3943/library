@@ -17,7 +17,7 @@
 <jsp:include page="/WEB-INF/header.jspf"/>
 <div class="container mt-5">
     <div class="col-12">
-        <form action="/addServlet">
+        <form action="/editServlet">
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="title">Title</label>

@@ -1,10 +1,10 @@
 package web;
 
-import domain.entity.Author;
-import domain.entity.Book;
-import domain.entity.Category;
+import domain.entity.*;
 import persistance.AuthorRepository;
 import persistance.BookRepository;
+import persistance.BorrowRepository;
+import persistance.BorrowerRepository;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -18,11 +18,17 @@ import java.util.stream.Collectors;
 
 @WebServlet("/red")
 public class RedirectingServlet extends HttpServlet {
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
         AuthorRepository authorRepository = new AuthorRepository();
         BookRepository bookRepository = new BookRepository();
+        BorrowerRepository borrowerRepository = new BorrowerRepository();
+
+        List<Borrower> borrowers = borrowerRepository.findAll();
+
+        req.setAttribute("borrowers", borrowers);
 
         int bookId = Integer.parseInt(req.getParameter("exampleRadios"));
         Book book = bookRepository.read(bookId);
@@ -32,6 +38,8 @@ public class RedirectingServlet extends HttpServlet {
 
         List<Category> categories = Arrays.stream(Category.values()).collect(Collectors.toList());
         req.setAttribute("categories", categories);
+
+
 
 
         switch (req.getParameter("action")) {
@@ -60,7 +68,19 @@ public class RedirectingServlet extends HttpServlet {
                     req.getRequestDispatcher("/show").forward(req, resp);
                 } else {
                     req.setAttribute("book", book);
-                    req.getRequestDispatcher("/borrowServlet").forward(req, resp);
+                    req.getRequestDispatcher("/borrow.jsp").forward(req, resp);
+
+                }
+
+            case "return":
+                if(book.getBorrow()==0){
+                    String error = "BOOK IS'T BORROWED, CHOOSE ANOTHER ONE";
+                    req.setAttribute("error", error);
+                    req.getRequestDispatcher("/show").forward(req, resp);
+                } else {
+                    book.setBorrow((byte)0);
+                    req.setAttribute("book", book);
+                    req.getRequestDispatcher("/show").forward(req, resp);
 
                 }
         }

@@ -18,6 +18,7 @@
 <div class="container mt-5">
     <div class="col-12">
         <p><c:out value="${requestScope.book.title}"/></p>
+        <p><c:out value="${requestScope.borrower.firstName}"/></p>
     </div>
 </div>
 <jsp:include page="/WEB-INF/footer.jspf"/>

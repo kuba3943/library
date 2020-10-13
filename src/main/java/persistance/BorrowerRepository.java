@@ -1,4 +1,7 @@
 package persistance;
 
-public class BorrowerRepository {
+import domain.entity.Book;
+import domain.entity.Borrower;
+
+public class BorrowerRepository extends GenericRepository<Borrower, Integer>{
 }

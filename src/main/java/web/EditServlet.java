@@ -13,20 +13,18 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.Date;
-import java.util.ArrayList;
 import java.util.List;
 
-@WebServlet("/addServlet")
-public class AddServlet extends HttpServlet {
+@WebServlet("/editServlet")
+public class EditServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
         BookRepository bookRepository = new BookRepository();
         AuthorRepository authorRepository = new AuthorRepository();
 
+        Book book = bookRepository.read(Integer.parseInt(req.getParameter("id")));
         Author author = authorRepository.read(Integer.parseInt(req.getParameter("author")));
-
-        Book book = new Book();
 
         book.setCategory(Category.valueOf(req.getParameter("category")));
         book.setBorrow(Byte.parseByte(req.getParameter("borrow")));
@@ -36,8 +34,7 @@ public class AddServlet extends HttpServlet {
         book.setPages(Integer.parseInt(req.getParameter("page")));
         book.setSummary(req.getParameter("summary"));
         book.setReleaseDate(Date.valueOf(req.getParameter("date")));
-       // bookRepository.delete(Integer.parseInt(req.getParameter("id")));
-        bookRepository.create(book);
+        bookRepository.update(book);
 
         List<Book> listOfBooks = bookRepository.findAll();
 

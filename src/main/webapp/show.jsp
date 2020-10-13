@@ -98,7 +98,9 @@
             <a href="/red">
                 <button type="submit" class="btn btn-success" name="action" value="borrow">BORROW</button>
             </a>
-
+            <a href="/red">
+                <button type="submit" class="btn btn-success" name="action" value="return">RETURN A BOOK</button>
+            </a>
         </form>
     </div>
 </div>
