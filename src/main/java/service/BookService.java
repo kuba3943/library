@@ -9,6 +9,7 @@ public class BookService {
 
     public BookDTO convertToBookDTO(Book book) {
         BookDTO bookDTO = new BookDTO();
+        bookDTO.setId(book.getId());
         bookDTO.setBorrow(book.getBorrow());
         bookDTO.setCategory(book.getCategory());
         bookDTO.setAuthorFirstName(book.getAuthorId().getFirstName());

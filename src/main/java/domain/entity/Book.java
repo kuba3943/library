@@ -6,6 +6,8 @@ import java.sql.Date;
 import java.time.LocalDate;
 import java.util.HashSet;
 import java.util.Set;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.Size;
 
 @Getter
 @Setter
@@ -38,9 +40,11 @@ public class Book {
     @Column (name = "release_date")
     private java.sql.Date releaseDate;
 
+    @Size(min=5, message = "Summary must be longer")
     @Column (name = "summary")
     private String summary;
 
+    @Size(min = 2, message = "Title must be longer than one sign")
     @Column (name = "title")
     private String title;
 

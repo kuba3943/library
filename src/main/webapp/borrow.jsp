@@ -39,8 +39,9 @@
 
         <div class="container mt-5">
             <div class="col-12">
-                <form action="index.jsp">
+                <form action="/borrowRed">
                     <button type="submit" class="btn btn-light" name="action" value="back">BACK</button>
+                    <button type="submit" class="btn btn-light" name="action" value="add_borrower">ADD BORROWER</button>
                 </form>
             </div>
         </div>

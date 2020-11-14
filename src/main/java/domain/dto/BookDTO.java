@@ -15,6 +15,7 @@ import lombok.Setter;
 
 public class BookDTO {
 
+    private int id;
     private byte borrow;
     private Category category;
     private String isbn;

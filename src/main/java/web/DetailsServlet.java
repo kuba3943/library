@@ -43,13 +43,14 @@ public class DetailsServlet extends HttpServlet {
         BookDTO bookDTO = service.convertToBookDTO(book);
 
 
+        Borrower borrower = new Borrower();
 
         for (Borrow a: borrows) {
-            if(a.getBookId().getId() == bookId){
-                Borrower borrower = a.getBorrowerId();
-                req.setAttribute("borrower", borrower);
+            if(a.getBookId().getId() == bookId && a.getBookId().getBorrow()==1){
+                borrower = a.getBorrowerId();
             }
         }
+        req.setAttribute("borrower", borrower);
 
 
         req.setAttribute("book", bookDTO);

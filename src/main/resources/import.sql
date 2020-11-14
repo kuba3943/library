@@ -2,10 +2,10 @@ insert into author (first_name, last_name, birth_place) values ('Stefan', 'Żero
 insert into author (first_name, last_name, birth_place) values ('Adam', 'Mickiewicz', 'Zaosie');
 insert into author  (first_name, last_name, birth_place) values ('Henryk', 'Sienkiewicz', 'Wola');
 
-insert into book (borrow, category, isbn, pages, release_date, summary, title, author_id) values (0, 'POEM', '876065', 400, '1834-06-20', 'abc', "Pan Tadeusz", 2);
-insert into book  (borrow, category, isbn, pages, release_date, summary, title, author_id) values (1, 'CLASSIC', '675345', 369, '1962-08-20', 'def', "W pustyni i w puszczy", 3);
-insert into book  (borrow, category, isbn, pages, release_date, summary, title, author_id) values (1, 'HISTORY', '657345', 440, '1895-08-20', 'jkl', "Quo vadis", 3);
-insert into book  (borrow, category, isbn, pages, release_date, summary, title, author_id) values (1, 'CLASSIC', '668555', 543, '1987-03-20', 'ghi', "Ludzie bezdomni", 1);
+insert into book (borrow, category, isbn, pages, release_date, summary, title, author_id) values (0, 'POEM', '876065', 400, '1834-06-20', 'abcgfhfgh', "Pan Tadeusz", 2);
+insert into book  (borrow, category, isbn, pages, release_date, summary, title, author_id) values (1, 'CLASSIC', '675345', 369, '1962-08-20', 'defhfghfgh', "W pustyni i w puszczy", 3);
+insert into book  (borrow, category, isbn, pages, release_date, summary, title, author_id) values (1, 'HISTORY', '657345', 440, '1895-08-20', 'jklhfghfg', "Quo vadis", 3);
+insert into book  (borrow, category, isbn, pages, release_date, summary, title, author_id) values (1, 'CLASSIC', '668555', 543, '1987-03-20', 'ghfghfghfi', "Ludzie bezdomni", 1);
 
 insert into borrower_details (address, email, phone) values ('Kraków', 'jan@onet.pl', '678456345');
 insert into borrower_details (address, email, phone) values ('Wieliczka', 'tomasz@onet.pl', '987456234');

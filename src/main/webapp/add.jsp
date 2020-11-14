@@ -17,6 +17,19 @@
 <jsp:include page="/WEB-INF/header.jspf"/>
 <div class="container mt-5">
     <div class="col-12">
+
+        <c:if test="${not empty requestScope.validation}">
+            <div class="alert alert-danger" role="alert">
+                <c:forEach var="cat" items="${requestScope.validation}">
+
+                    <c:out value="${cat.message}"/><br>
+
+                </c:forEach>
+            </div>
+
+        </c:if>
+
+
         <form action="/addServlet">
             <div class="form-row">
                 <div class="form-group col-md-6">
